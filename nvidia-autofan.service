@@ -1,0 +1,17 @@
+[Unit]
+Description=NVIDIA AutoFan Monitoring Service
+After=network.target
+
+[Service]
+Type=notify
+NotifyAccess=all
+# L'argument --interval est fixé à 60 secondes
+ExecStart=/usr/bin/env python3 /opt/nvidia-autofan/autofan.py --memtemp --interval 60
+Restart=always
+RestartSec=10
+WatchdogSec=30
+User=root
+Group=root
+
+[Install]
+WantedBy=multi-user.target

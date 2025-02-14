@@ -1,0 +1,2 @@
+pynvml
+sdnotify  # Optional: required for systemd watchdog notifications
